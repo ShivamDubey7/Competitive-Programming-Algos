@@ -1,23 +1,24 @@
-// C++ code to implement factorial
-#include <bits/stdc++.h>
+/#include<iostream>
 using namespace std;
 
-// Factorial function
-int f(int n)
-{
-	// Stop condition
-	if (n == 0 || n == 1)
-		return 1;
+int factorial(int n);
 
-	// Recursive condition
-	else
-		return n * f(n - 1);
-}
-
-// Driver code
 int main()
 {
-	int n = 5;
-	cout<<"factorial of "<<n<<" is: "<<f(n);
-	return 0;
+    int n;
+
+    cout << "Enter a positive integer: ";
+    cin >> n;
+
+    cout << "Factorial of " << n << " = " << factorial(n);
+
+    return 0;
+}
+
+int factorial(int n)
+{
+    if(n > 1)
+        return n * factorial(n - 1);
+    else
+        return 1;
 }
