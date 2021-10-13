@@ -1,36 +1,40 @@
-#include<bits/stdc++.h>
+// CPP program to implement
+// Binary Search in
+// Standard Template Library (STL)
+#include <algorithm>
+#include <iostream>
+
 using namespace std;
-//Create a predicate to return T/F for an ind
-bool predicate(vector<int>&v, int ind, int search_token){
-	return v[ind] >= search_token;
+
+void show(int a[], int arraysize)
+{
+	for (int i = 0; i < arraysize; ++i)
+		cout << a[i] << ",";
 }
-int binarySeach(vector<int>&v, int search_token){
-	int low = 0,high = v.size(),mid;
-	while(low<high){
-		mid = (low+high)/2;
-		if(predicate(v,mid,search_token)){
-			high = mid;
-		}
-		else
-			low = mid+1;
-	}
-	if(v[low]==search_token) return low;
-	return -1;
-}
-int recursiveBinarySearch(vector<int>&v, int search_token, int begin, int end){
-	if(begin==end){
-		if(v[begin]==search_token)
-			return begin;
-		return -1;
-	}
-	int mid = (begin+end)/2;
-	if(predicate(v,mid,search_token)){
-		return recursiveBinarySearch(v,search_token,begin,mid);
-	}
-	return recursiveBinarySearch(v,search_token,mid+1,end);
-}
-int main(){
-	vector<int> v = {1,2,4,5,11,20,25};
-	cout<<recursiveBinarySearch(v,6,0,6);
+
+int main()
+{
+	int a[] = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 };
+	int asize = sizeof(a) / sizeof(a[0]);
+	cout << "\nThe array is : \n";
+	show(a, asize);
+
+	cout << "\n\nLet's say we want to search for ";
+	cout << "\n2 in the array So, we first sort the array";
+	sort(a, a + asize);
+	cout << "\n\nThe array after sorting is : \n";
+	show(a, asize);
+	cout << "\n\nNow, we do the binary search";
+	if (binary_search(a, a + 10, 2))
+		cout << "\nElement found in the array";
+	else
+		cout << "\nElement not found in the array";
+
+	cout << "\n\nNow, say we want to search for 10";
+	if (binary_search(a, a + 10, 10))
+		cout << "\nElement found in the array";
+	else
+		cout << "\nElement not found in the array";
+
 	return 0;
 }
