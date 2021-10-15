@@ -1,3 +1,14 @@
+
+
+//WHAT IS BUBBLE SORT:
+//Bubble Sort is one of the simplest sorting techniques in Java to sort the array elements. 
+//The swapping of elements continues until the array is sorted and no more swapping is required. 
+//We can also sort the elements in the descending order in which the smallest element goes at the end of the array in each iteration.
+//THIS EXPLAINATION IS PROVIDED TO HELP BEGGINNER'S UNDERSTAND THE CODE
+
+
+
+
 package arrays;
 
 public class BubbleSort {
