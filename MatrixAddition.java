@@ -1,3 +1,10 @@
+
+//WHAT IS MATRIX ADDITION ?
+//In mathematics, matrix addition is the operation of adding two matrices by adding the corresponding entries together. 
+//However, there are other operations which could also be considered addition for matrices, such as the direct sum and the Kronecker sum.
+
+
+
 package arrays;
 import java.util.Scanner;
 public class MatrixAddition {
