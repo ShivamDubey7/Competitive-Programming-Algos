@@ -1,3 +1,9 @@
+/*A recursive function is a nonleaf function that calls itself.
+The factorial function can be written as a recursive function call. 
+Recall that factorial(n) = n × (n – 1) × (n – 2) × … × 2 × 1. 
+The factorial function can be rewritten recursively as factorial(n) = n × factorial(n – 1).*/
+
+
 /#include<iostream>
 using namespace std;
 
