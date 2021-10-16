@@ -1,5 +1,9 @@
 # This is the code for finding anagram of the string in java
 
+//Anagram : a word or phrase that is made by arranging the letters of another word or phrase in a different order
+//Example: "Worth" is an anagram of ‘throw’.
+//This java anagram program compares the letters of both words/strings entered and then shows
+//wheather they are anagram of each other or not
 
 import java.util.Scanner;
 public class AnagramOfStrings {
@@ -26,8 +30,8 @@ public class AnagramOfStrings {
 				}if (!isAnagram) break;
 			}
 		}
-		if (isAnagram) System.out.println("anagram");
-		else System.out.println("not anagram");
+		if (isAnagram) System.out.println("an anagram");
+		else System.out.println("not an anagram");
 	}
 		
 }
