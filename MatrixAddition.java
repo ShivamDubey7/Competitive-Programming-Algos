@@ -1,49 +1,33 @@
-#include <iostream>
-using namespace std;
-
-int main()
+#include<iostream>
+using namespace std; 
+int main ()
 {
-    int r, c, a[100][100], b[100][100], sum[100][100], i, j;
-
-    cout << "Enter number of rows (between 1 and 100): ";
-    cin >> r;
-
-    cout << "Enter number of columns (between 1 and 100): ";
-    cin >> c;
-
-    cout << endl << "Enter elements of 1st matrix: " << endl;
-    
-   // first matrix
-    for(i = 0; i < r; ++i)
-       for(j = 0; j < c; ++j)
-       {
-           cout << "Enter element a" << i + 1 << j + 1 << " : ";
-           cin >> a[i][j];
-       }
-
-    // second matrix
-    cout << endl << "Enter elements of 2nd matrix: " << endl;
-    for(i = 0; i < r; ++i)
-       for(j = 0; j < c; ++j)
-       {
-           cout << "Enter element b" << i + 1 << j + 1 << " : ";
-           cin >> b[i][j];
-       }
-
-    // Adding Two matrices
-    for(i = 0; i < r; ++i)
-        for(j = 0; j < c; ++j)
-            sum[i][j] = a[i][j] + b[i][j];
-
-    // Displaying new matrix
-    cout << endl << "Sum of two matrix is: " << endl;
-    for(i = 0; i < r; ++i)
-        for(j = 0; j < c; ++j)
-        {
-            cout << sum[i][j] << "  ";
-            if(j == c - 1)
-                cout << endl;
-        }
-
+    int m, n, p, q, i, j, A[5][5], B[5][5], C[5][5];
+    cout << "Enter rows and column of matrix A : ";
+    cin >> m >> n;
+    cout << "Enter rows and column of matrix B : ";
+    cin >> p >> q; 
+    if ((m != p) && (n != q))
+    {
+        cout << "Matrices cannot be added!";
+        exit(0);
+    }	
+    cout << "Enter elements of matrix A : ";
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+            cin >> A[i][j];
+	cout << "Enter elements of matrix B : ";
+    for (i = 0; i < p; i++)
+        for (j = 0; j < q; j++)
+            cin >> B[i][j];		
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+            C[i][j] = A[i][j] + B[i][j];
+    cout << "Sum of matrices\n";
+    for (i = 0; i < m; i++)
+    {    for (j = 0; j < n; j++)
+            cout << C[i][j] << "  ";	
+        cout << "\n";
+    }
     return 0;
 }
