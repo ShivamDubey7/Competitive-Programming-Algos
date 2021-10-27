@@ -1,6 +1,6 @@
 def bubbleSort(arr):
     n = len(arr)
- 
+  
     # Traverse through all array elements
     for i in range(n-1):
     # range(n) also work but outer loop will repeat one time more than needed.
