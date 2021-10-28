@@ -1,0 +1,43 @@
+class Solution {
+public:
+    int x[4]={1,-1,0,0};
+    int y[4]={0,0,1,-1};
+    int dp[1009][1009];
+int solve(vector<vector<int>>&matrix,int i,int j,int n,int m){
+        int ans=0;
+    if(dp[i][j]!=-1)return dp[i][j];
+       for(int k=0;k<4;k++){
+           int a=x[k]+i;
+           int b=y[k]+j;
+            if(a>=n || a<0 || b>=m || b<0)continue;
+            if( matrix[a][b]>matrix[i][j])
+            {   int temp;
+                 if(dp[a][b]!=-1)temp=dp[a][b];
+                else
+                temp=solve(matrix,a,b,n,m);
+               ans=max(ans,temp);
+            }
+       }
+    dp[i][j]=ans+1;
+    return dp[i][j];
+    }
+    int longestIncreasingPath(vector<vector<int>>& matrix) {
+        int n=matrix.size();
+        if(n==0)return 0;
+        int m=matrix[0].size();
+        for(int i=0;i<1009;i++){
+            for(int j=0;j<1009;j++)dp[i][j]=-1;
+        }
+        int ans=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {   
+                int res=0;
+               res=solve(matrix,i,j,n,m);
+                ans=max(ans,res);
+            }
+        }
+        return ans;
+    }
+};
