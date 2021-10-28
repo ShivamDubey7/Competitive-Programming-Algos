@@ -1,0 +1,66 @@
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+struct stocked{
+	int stcks[5];
+	int topq;};
+stocked stonks;
+int main(){
+	int pili,takbo,numstock; bool runner=true;stonks.topq=-1;
+		while(runner){
+cout << "      #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#" <<"\n";	
+cout << "      #- - -  Abstract Data Types  - - -#" <<"\n";
+cout << "      # - - -   STACK OPERATION   - - - #" <<"\n";
+cout << "      #  - -    [1] PUSH           - -  #" <<"\n";
+cout << "      # - - -   [2] POP           - - - #" <<"\n"; 
+cout << "      #  - -    [3] DISPLAY        - -  #" <<"\n";
+cout << "      #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#" <<"\n";	
+cout << "      #Choose [1-3]: ";	
+		cin >> pili;
+	switch(pili){
+	case 1: {
+ 				if(stonks.topq == (5-1)){
+ 				cout <<"\n" <<"\n";
+cout << "      ! ! ! ! ! -STACK IS FULL- ! ! ! ! !" <<"\n";
+} else{  system("cls");
+cout << "      - - - - - - - - - - - - - - - - - -" <<"\n";
+cout << "      -Element to Push: ";
+	cin >> numstock;
+cout << "      - - - - - - - - - - - - - - - - - -" <<"\n";
+	stonks.topq=stonks.topq +1;
+stonks.stcks[stonks.topq]=numstock;
+cout <<"\n";
+cout << "      - - - - - - - - - - - - - - - - - -" <<"\n";	
+cout << "       - - - - - - PUSH ADDED- - - - - -" <<"\n";
+cout << "      - - - - - - - - - - - - - - - - - -" <<"\n";	} break;}
+case 2: { 
+if(stonks.topq == -1){
+cout <<"\n" <<"\n";
+cout << "      ! ! ! ! ! -STACK IS EMPTY- ! ! ! ! !" <<"\n";		}
+else{	system("cls");
+numstock = stonks.stcks[stonks.topq];
+cout << "      + + + + + + + + + + + + + + + + + + +" <<"\n";		
+cout << "      +         POP Element: " << stonks.stcks[stonks.topq] << "            +";
+stonks.topq = stonks.topq-1;		}
+cout << "\n";
+cout << "      + + + + + + + + + + + + + + + + + + +" <<"\n" <<"\n"; break; }
+case 3: {system("cls");
+if(stonks.topq == -1){
+cout << "     / / / / / / / / / / / / / / / / / / /" <<"\n";
+cout << "      ! ! ! ! ! -STACK IS EMPTY- ! ! ! ! !" <<"\n";
+cout << "     / / / / / / / / / / / / / / / / / / /" <<"\n";}	
+else{cout <<"\n"; 
+cout << "     - - - - - - - - - - - - - - - - - - - - - -" <<"\n";	
+for(numstock=stonks.topq; numstock>=0; numstock--){
+cout <<"    "; cout << " ["<< stonks.stcks[numstock] <<"] " << " " ;} }cout <<"\n"; 
+cout << "     - - - - - - - - - - - - - - - - - - - - - -" <<"\n";	break;}
+default:{cout << "\n";
+cout <<"     ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" <<"\n"; 
+cout <<"    | | | | | | |ERROR: ONLY [1-3]| | | | | | | |" <<"\n"; 
+cout <<"     ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" <<"\n" << "\n";break; }}
+cout<<"\n" <<"\n";
+cout<<  "      -#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-" << "\n";		
+cout<<  "      #    Back to MAIN MENU [0 | 1]?   #" <<"\n";
+cout<<  "                       "; cin>>takbo;   if(takbo==1){  }else{ runner=false; } system("cls");
+}
+system(“pause”);
