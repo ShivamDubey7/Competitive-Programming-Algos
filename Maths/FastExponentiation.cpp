@@ -10,9 +10,21 @@ ll fastExpo(ll base, ll power){
 	}
 	return temp*temp;
 }
+ll fastExpoIterative(ll base, ll power){
+	ll res = 1;
+	while(power	>0){
+		if(power&1){
+			res*=base;
+		}
+		power/=2;
+		base*=base;
+	}
+	return res;
+
+}
 int main(){	
 	ll base = 5;
 	ll power = 3;
-	cout<<fastExpo(base,power);
+	cout<<fastExpoIterative(base,power);
 
 }
