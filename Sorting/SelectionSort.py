@@ -5,23 +5,29 @@
 # Average Time Complexity: O(n^2)
 # Best Time Complexity: O(n^2)
 
-print("Number Sequence Before Selection Sort")
-seq=[5,2,1,8,3,5,3]
-print(seq)
+# Python program for implementation of Selection
+# Sort
+import sys
+A = [64, 25, 12, 22, 11]
 
-def selectionSort(nums):
-    n=len(nums)
-    for i in range(n-1):
-        iMin=i
-        for j in range(i+1,n):
-            if(nums[iMin]>nums[j]):
-                iMin=j
-        temp=nums[i]
-        nums[i]=nums[iMin]
-        nums[iMin]=temp
-    return nums
+# Traverse through all array elements
+for i in range(len(A)):
+	
+	# Find the minimum element in remaining
+	# unsorted array
+	min_idx = i
+	for j in range(i+1, len(A)):
+		if A[min_idx] > A[j]:
+			min_idx = j
+			
+	# Swap the found minimum element with
+	# the first element		
+	A[i], A[min_idx] = A[min_idx], A[i]
 
-print("Number Sequence After Selection Sort")
-print(selectionSort(seq))
+# Driver code to test above
+print ("Sorted array")
+for i in range(len(A)):
+	print("%d" %A[i]),
+
 
 
