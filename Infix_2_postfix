@@ -1,0 +1,96 @@
+#include<iostream>
+#include<stack>                                                          // in-build stack data structure
+
+using namespace std;
+
+bool is_operator(char c){                                               //to check if the parameter is an operator
+	if((c=='+') || (c=='-') || (c=='*') || (c=='/'))
+	 return true;
+	else 
+	  return false;
+}
+
+int check_pre(char c){                                                  //precedence function in which precedence of the ( and ) is not considered
+	
+	if(c=='^')  return 3;
+	
+	else if((c=='*') || (c=='/')) return 2;
+	
+	else if((c=='+') || (c=='-')) return 1;
+	 
+	else return -1; 
+}
+
+string in_post(stack<char> s,string infix){
+	
+	string postfix;
+	
+	for( int i=0 ; i<infix.length() ; i++){
+		
+		if(( infix[i] >= 'a' && infix[i]<='z') || ( infix[i] >= 'A' && infix[i] <= 'Z'))         //If it is an alpha then we will directly add in postfix
+		
+		postfix+=infix[i];
+		
+		else if( infix[i] == '(' )                                                               //If '(' then simply push in stack
+		        s.push(infix[i]);
+		        
+		else if( infix[i] == ')' ){
+			while ((!s.empty()) && (s.top() != '(')){                                           //If ')' then pop till '(' 
+				
+				postfix+=s.top();
+				s.pop();
+				
+			}
+			if(s.top() == '('){
+				s.pop();
+			}
+		}
+		else if(is_operator(infix[i])){                                                         //check if it is an operator
+			
+			if(s.empty()){                                                                     //If stack is empty then simply push
+				s.push(infix[i]);
+			}
+			
+			else{
+				if(check_pre(infix[i]) > check_pre(s.top()))                                 //If precedence is higher then simply push           
+				    s.push(infix[i]);
+				    
+				else if(check_pre(infix[i])==check_pre(s.top()) && infix[i]=='^')            //Associtivity of exponential is right to left 
+				    s.push(infix[i]);
+				    
+				else{
+					while((!s.empty() && check_pre(infix[i]) <= check_pre(s.top()))){       //pop out till th top has lower precedence
+						postfix+=s.top();
+						s.pop();
+					}
+					s.push(infix[i]);
+				}
+			}
+		}
+	}
+	while(!s.empty()){                                                                          //pop everything out till the stack is empty
+		postfix+=s.top();
+		s.pop();
+	}
+	
+	
+	return postfix;
+}
+
+
+int main(){
+    
+    string infix,postfix;
+    
+    cout<<"-----INFIX_to_POSTFIX-------"<<endl;
+    cout<<"Enter an INFIX expression:";
+    cin>>infix;
+    stack <char> s;
+    cout<<endl;
+    cout<<"INFIX expression: "<<infix<<endl;
+    postfix = in_post(s,infix);
+    cout<<"POSTFIX expression:"<<postfix<<endl;
+    
+	
+	return 0;
+}
